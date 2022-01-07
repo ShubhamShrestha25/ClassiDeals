@@ -1,0 +1,122 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+
+.navUp {
+  display: flex;
+  position: sticky;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  padding: 0px 50px;
+  background: #ffffff;
+}
+
+.navRight {
+  display: flex;
+}
+
+.navRight button {
+  margin: 0px 24px 0px 0px;
+  background: #40b566;
+  padding: 8px 15px;
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 16px;
+  color: #fff;
+}
+
+.navDown {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+  background: #f5f5f5;
+  height: 60px;
+  padding-top: 10px;
+  padding-left: 11rem;
+}
+
+.navItems,
+.navItem {
+  position: relative;
+  display: inline-block;
+}
+
+.navItem{
+  width: 100%;
+}
+
+.downIcon {
+  font-size: 12px;
+}
+
+.dropDownMenu {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  padding: 1px 0px;
+  margin-top: 5px;
+  width: 130px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1;
+}
+
+.dropDownSubMenu {
+  display: none;
+  position: absolute;
+  background: #ffffff;
+  padding: 1px 0px;
+  margin-top: 5px;
+  width: 120px;
+  top: 0;
+  right: 101%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1;
+}
+
+
+.dropDownMenu ul {
+  list-style: none;
+}
+
+.dropDownMenuLi{
+  padding: 10px;
+  font-size: 14px;
+}
+
+.dropDownMenuLi:hover {
+  background: #40b566;
+  
+}
+
+
+.navItems:hover .dropDownMenu {
+  display: block;
+}
+
+.navItem:hover .dropDownSubMenu {
+  display: block;
+}
+
+.navItems {
+  margin-right: 30px;
+  padding-bottom: 8px;
+}
+
+.navItems h5 {
+  font-size: 17px;
+  color: #000000d9;
+  font-weight: 500;
+}
+
+
+@media screen and (max-width: 767px) {
+  .navDown {
+    display: none;
+  }
+}

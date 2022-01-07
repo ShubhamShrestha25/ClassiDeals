@@ -1,0 +1,171 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url("/public/images/cake.jpg");
+  width: 100%;
+  height: 90vh;
+  object-fit: cover;
+}
+
+.searchBtns {
+  display: flex;
+  gap: 10px;
+  position: relative;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  background: #fff;
+  width: 10rem;
+  height: 50px;
+}
+
+.inputContainer input {
+  width: 120px;
+  background: #fff;
+  outline: none;
+  border: none;
+  font-size: 16px;
+  padding-left: 10px;
+}
+
+.dropDownMenuLocation {
+  position: absolute;
+  background: #fff;
+  padding: 1px 0px;
+  top: 30px;
+  margin-top: 25px;
+  height: 50vh;
+  width: 100%;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  z-index: 1;
+  overflow-y: scroll;
+}
+
+.dropDownMenuLocation::-webkit-scrollbar {
+  width: 5px;
+}
+
+.dropDownMenuLocation::-webkit-scrollbar-track {
+  border-radius: 5px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+.dropDownMenuLocation::-webkit-scrollbar-thumb {
+  border-radius: 5px;
+  background-color: #525252;
+}
+
+.dropDownMenuLocation ul {
+  list-style: none;
+}
+
+.dropDownMenuLocation li {
+  padding: 10px;
+}
+
+
+
+.searchContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #fff;
+  border: 0.5px solid #40b566;
+  width: 25rem;
+  height: 50px;
+}
+
+.searchContainer input {
+  position: relative;
+  width: 280px;
+  background: #fff;
+  outline: none;
+  border: none;
+  padding-left: 20px;
+}
+
+.searchBtn {
+  height: 100%;
+  width: 80px;
+  background: #40b566;
+  outline: none;
+  border: none;
+  font-size: 18px;
+  color: #fff;
+  cursor: pointer;
+}
+
+body.active-modal {
+  overflow-y: hidden;
+}
+
+.btn-modal {
+  padding: 10px 20px;
+  display: block;
+  margin: 100px auto 0;
+  font-size: 18px;
+}
+
+.modal,
+.overlay {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  position: fixed;
+}
+
+.modal {
+  z-index: 1;
+}
+
+.overlay {
+  background: rgba(49, 49, 49, 0.8);
+}
+
+.modalContent {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1.4;
+  background: #f1f1f1;
+  padding: 14px 28px;
+  border-radius: 3px;
+  max-width: 600px;
+  min-width: 300px;
+}
+
+.closeModal {
+  position: absolute;
+  border: none;
+  top: 10px;
+  right: 10px;
+  padding: 5px 7px;
+  background: transparent;
+}
+
+.showSearch{
+  padding: 5px;
+}
+
+.showSearch:first-child{
+  margin-top: 20px;
+}
+
+@media screen and (max-width: 767px) {
+  .searchBtns {
+    flex-direction: column;
+  }
+  .inputContainer{
+    width: 100%;
+  }
+ 
+}
