@@ -83,24 +83,37 @@
   flex-direction: column;
 }
 
-.paymentZIPCountry input{
-    width: 100px;
+.paymentZIPCountry input {
+  width: 100px;
 }
 
-.paymentIcons{
-    display: flex;
-    gap: 40px;
+.paymentIcons {
+  display: flex;
+  gap: 40px;
 }
 
-.paymentIcon{
-    display: flex;
-    align-items: center;
-    gap: 20px;
+.paymentIcon {
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
-.paymentIcon img{
-    width: 80px;
-    height: 40px;
+.paymentIcon img {
+  width: 80px;
+  height: 40px;
+}
+
+.reviewBox {
+  display: flex;
+}
+
+.reviewLeft {
+  display: flex;
+  flex: 2;
+}
+
+.reviewRight {
+  flex: 1;
 }
 
 @media screen and (max-width: 767px) {

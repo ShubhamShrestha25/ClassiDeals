@@ -12,7 +12,7 @@ import {
 } from "@ant-design/icons";
 import axios from "axios";
 import "antd/dist/antd.css";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState([]);
@@ -181,7 +181,7 @@ const ProductDetails = () => {
                   </div>
               </div>
               <div className="productDetailsCheckoutBtn">
-              <button style={{backgroundColor:"#40b566", color:"#fff"}}>Continue To CheckOut</button>
+              <Link className="link" to={`/payment/${product.id}`}><button style={{backgroundColor:"#40b566", color:"#fff"}}>Continue To CheckOut</button></Link>
               <button style={{backgroundColor:"#dc8b2e", color:"#fff"}}>Give as a Gift</button>
               </div>
             </div>

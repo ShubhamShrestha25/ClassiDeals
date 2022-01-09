@@ -93,7 +93,17 @@ const Payment = () => {
           </div>
         </div>
         <div className="paymentRight">
-          <h2>Order Summary</h2>
+          <h3>Order Summary</h3>
+          <div className="reviewBox">
+              <h3>Review Order</h3>
+              <div className="reviewLeft">
+                  <h3>ITEM</h3>
+              </div>
+              <div className="reviewRight">
+                  <h3>QTY</h3>
+                  <h3>TOTAl</h3>
+              </div>
+          </div>
         </div>
         
       </div>
