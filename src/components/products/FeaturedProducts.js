@@ -31,6 +31,7 @@ const FeaturedProducts = () => {
   }, []);
 
 
+
   return (
     <>
       <h2 className="featuredTitle">Featured</h2>
@@ -47,10 +48,11 @@ const FeaturedProducts = () => {
               </div>
               <div className="productCardRight">
                 <p>{product.discount}% OFF</p>
-                <p>${product.product_price}</p>
+                <p><del>${product.product_price}</del></p>
                 <p>${product.actual_price}</p>
               </div>
             </div>
+            {product.id}
             </Link>
           </div>
         ))}

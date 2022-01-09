@@ -7,8 +7,11 @@ import {
   HomeOutlined,
   PlusOutlined,
   MinusOutlined,
+  HeartOutlined,
+  TagOutlined
 } from "@ant-design/icons";
 import axios from "axios";
+import "antd/dist/antd.css";
 
 const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState([]);
@@ -24,6 +27,10 @@ const ProductDetails = () => {
     };
     getProductDetails();
   }, []);
+
+ console.log(productDetails)
+
+
 
   return (
     <>
@@ -59,7 +66,7 @@ const ProductDetails = () => {
               <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
               <li>⦾ Dolby Vision | Dolby Atmos</li>
             </div>
-            <div className="productAboutDeal">
+            <div className="productHightlight">
               <h3>About This Deal</h3>
               <li>⦾ Mini LED display</li>
               <li>⦾ Quantum NanoCell Color Technology</li>
@@ -67,7 +74,7 @@ const ProductDetails = () => {
               <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
               <li>⦾ Dolby Vision | Dolby Atmos</li>
             </div>
-            <div className="productAditionalInfo">
+            <div className="productHightlight">
               <h3>Aditional Information</h3>
               <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc
@@ -81,7 +88,7 @@ const ProductDetails = () => {
                 faucibus sit magnis placerat platea aliquam.
               </p>
             </div>
-            <div className="productFinePrint">
+            <div className="productHightlight">
               <h3>Fine Print</h3>
               <li>⦾ Mini LED display</li>
               <li>⦾ Quantum NanoCell Color Technology</li>
@@ -89,15 +96,15 @@ const ProductDetails = () => {
               <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
               <li>⦾ Dolby Vision | Dolby Atmos</li>
             </div>
-            <div className="productRedeem">
-              <h3>How TO Redeem</h3>
+            <div className="productHightlight">
+              <h3>How To Redeem</h3>
               <li>⦾ Mini LED display</li>
               <li>⦾ Quantum NanoCell Color Technology</li>
               <li>⦾ Available in 86-inch</li>
               <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
               <li>⦾ Dolby Vision | Dolby Atmos</li>
             </div>
-            <div className="productAbout">
+            <div className="productHightlight">
               <h3>About The Company</h3>
               <p>
                 About the company Firescreen television is the online news
@@ -137,10 +144,42 @@ const ProductDetails = () => {
                   <div className="rectangle">
                     <MinusOutlined />
                   </div>
-                  <button>Add To Wishlist</button>
+                  
                 </div>
+                <div className="addToBtns">
+                  <button style={{backgroundColor:"#dc8b2e", color:"#fff"}}><HeartOutlined /> Add To Wishlist</button>
+                  <button style={{backgroundColor:"#40b566", color:"#fff"}}><TagOutlined /> 1 + Brought</button>
+                  </div>
+                  <div className="productPriceDescount">
+                    <p>2% off</p>
+                    <div>
+                    <p><del>$200</del></p>
+                    <p>$196</p>
+                    </div>
+                  </div>
+                  <div className="productDetailsRadio"> 
+                  <input type="radio" />
+                  <label>LG TV</label>
+                  </div>
+                  <div className="limitedTime">
+                  <p>Limited time remaining</p>
+                  <h2>12:12:12</h2>
+                  </div>
+              </div>
+              <div className="productDetailsCheckoutBtn">
+              <button style={{backgroundColor:"#40b566", color:"#fff"}}>Continue To CheckOut</button>
+              <button style={{backgroundColor:"#dc8b2e", color:"#fff"}}>Give as a Gift</button>
               </div>
             </div>
+            <p style={{marginTop:"25px"}}><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.1522162302053!2d149.11846281512146!3d-35.277341550957004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d448f9b3033%3A0xa086b01912baf60a!2s112%20Joplin%20Ln!5e0!3m2!1sen!2snp!4v1641706509775!5m2!1sen!2snp" width="275" height="300"  style={{border:0}} allowfullscreen="true" loading="lazy" title="map"></iframe></p>
+          <div className="shareDeals">
+              <h2>Share This Deals</h2>
+              <div className="dealsIcon">
+                <img src="/images/facebook.png" alt=""/>
+                <img src="/images/twitter.png" alt=""/>
+                <img src="/images/pininterest.png" alt=""/>
+              </div>
+          </div>
           </div>
         </div>
       </div>
