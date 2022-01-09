@@ -1,0 +1,110 @@
+.payment {
+  display: flex;
+  margin: 30px 200px;
+  gap: 50px;
+}
+
+.paymentLeft {
+  flex: 2;
+}
+
+.paymentRight {
+  flex: 1;
+}
+
+.paymentForm {
+  box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px,
+    rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 50px;
+}
+
+.paymentForm h3 {
+  padding: 20px 0px;
+}
+
+.paymentForm form {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentForm input {
+  border-radius: 10px;
+  padding: 1px 5px;
+  margin: 15px 0px;
+}
+
+.paymentFix {
+  display: flex;
+  gap: 50px;
+}
+
+.paymentFixChild {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentPromo {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.paymentCode {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentPromo button {
+  display: flex;
+  position: relative;
+  top: 0.6rem;
+  padding: 3px 15px;
+  border: none;
+  background-color: #40b566;
+  border-radius: 3px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.paymentZIPCountry {
+  display: flex;
+  gap: 50px;
+}
+
+.paymentZIP {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentCountry {
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentZIPCountry input{
+    width: 100px;
+}
+
+.paymentIcons{
+    display: flex;
+    gap: 40px;
+}
+
+.paymentIcon{
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.paymentIcon img{
+    width: 80px;
+    height: 40px;
+}
+
+@media screen and (max-width: 767px) {
+  .payment {
+    flex-direction: column;
+  }
+}
