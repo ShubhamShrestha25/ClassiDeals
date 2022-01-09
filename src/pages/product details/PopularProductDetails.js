@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import "./ProductDetails.css";
 import { Rate } from "antd";
 import Navbar from "../../components/navbar/Navbar";
 import {
@@ -14,7 +13,7 @@ import axios from "axios";
 import "antd/dist/antd.css";
 import { useParams } from "react-router-dom";
 
-const ProductDetails = () => {
+const PopularProductDetails = () => {
   const [productDetails, setProductDetails] = useState([]);
   const [counter, setCounter] = useState(1);
   const {productId} = useParams()
@@ -30,7 +29,7 @@ const ProductDetails = () => {
   useEffect(() => {
     const getProductDetails = async () => {
       const response = await axios
-        .get("https://classibazaar.com.au/api/deal/featured_deals/")
+        .get("https://classibazaar.com.au/api/deal/popular_deals/")
         .catch((err) => {
           console.log(err);
         });
@@ -203,4 +202,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default PopularProductDetails;

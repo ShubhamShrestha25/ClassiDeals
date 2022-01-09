@@ -37,7 +37,7 @@ const PopularProducts = () => {
       <div className="featuredProducts">
         {PopularProducts.slice(0, visible).map((product) => (
           <div className="productCard" key={product.id}>
-            <Link to="/details" className="link">
+            <Link to={`/details/popular/${product.id}`} className="link">
             <img src={product.image.thumbnail} alt="" />
             <div className="productCardBottom">
               <div className="productCardLeft">

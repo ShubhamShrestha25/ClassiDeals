@@ -39,7 +39,7 @@ const FeaturedProducts = () => {
       <div className="featuredProducts">
         {FeaturedProducts.slice(0, visible).map((product) => (
           <div className="productCard" key={product.id}>
-            <Link to="/details" className="link">
+            <Link to={`/details/featured/${product.id}`} className="link">
             <img src={product.image.thumbnail} alt="" />
             <div className="productCardBottom">
               <div className="productCardLeft">
@@ -52,7 +52,6 @@ const FeaturedProducts = () => {
                 <p>${product.actual_price}</p>
               </div>
             </div>
-            {product.id}
             </Link>
           </div>
         ))}
