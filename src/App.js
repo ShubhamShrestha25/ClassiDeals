@@ -3,7 +3,7 @@ import "./App.css";
 import Homepage from "./pages/homepage/HomePage";
 import ProductDetails from "./pages/product details/ProductDetails";
 import Payment from './pages/payment/Payment'
-import Test from "./pages/Test";
+import Gift from "./pages/gift/Gift";
 
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
         <Route path="/" element={<Homepage />} />
         <Route path="/details/:productId" element={<ProductDetails />} />
         <Route path="/payment/:productId" element={<Payment/>}/>
-        <Route path="/test" element={<Test/>}/>
+        <Route path="/gift/:productId" element={<Gift/>}/>
       </Routes>
     </div>
   );

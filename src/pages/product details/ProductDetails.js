@@ -8,7 +8,7 @@ import {
   PlusOutlined,
   MinusOutlined,
   HeartOutlined,
-  TagOutlined
+  TagOutlined,
 } from "@ant-design/icons";
 import axios from "axios";
 import "antd/dist/antd.css";
@@ -18,15 +18,15 @@ const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState([]);
   const [productImage, setProductImage] = useState([]);
   const [counter, setCounter] = useState(1);
-  const {productId} = useParams()
+  const { productId } = useParams();
 
   const incCounter = () => {
-    setCounter(counter + 1)
-  }
+    setCounter(counter + 1);
+  };
 
   const decCounter = () => {
-    setCounter(counter - 1)
-  }
+    setCounter(counter - 1);
+  };
 
   useEffect(() => {
     const getProductDetails = async () => {
@@ -36,20 +36,18 @@ const ProductDetails = () => {
           console.log(err);
         });
       setProductDetails(response.data.deal);
-      setProductImage(response.data.images)
+      setProductImage(response.data.images);
     };
     getProductDetails();
   }, [productId]);
 
- 
-
-  console.log(productImage)
+  console.log(productImage);
 
   return (
     <>
       <Navbar />
-    
-        <div className="productDetails" key={productDetails.id} >
+
+      <div className="productDetails" key={productDetails.id}>
         <div className="productDesc">
           <div className="productUp">
             <h2>{productDetails.dealstitle}</h2>
@@ -69,19 +67,23 @@ const ProductDetails = () => {
         </div>
         <div className="productDetailInfo">
           <div className="productLeft">
-            {productImage.map((image) =>(
+            {productImage.map((image) => (
               <div className="productImg">
-              <img src={image.thumbnail} alt="" />
-            </div>
+                <img src={image.thumbnail} alt="" />
+              </div>
             ))}
-            
+
             <div className="productHightlight">
               <h3>Highlights</h3>
-              <li dangerouslySetInnerHTML={{__html: productDetails.highlights }}></li>
+              <li
+                dangerouslySetInnerHTML={{ __html: productDetails.highlights }}
+              ></li>
             </div>
             <div className="productHightlight">
               <h3>About This Deal</h3>
-              <li dangerouslySetInnerHTML={{__html: productDetails.description }}></li>
+              <li
+                dangerouslySetInnerHTML={{ __html: productDetails.description }}
+              ></li>
             </div>
             <div className="productHightlight">
               <h3>Aditional Information</h3>
@@ -99,11 +101,17 @@ const ProductDetails = () => {
             </div>
             <div className="productHightlight">
               <h3>Fine Print</h3>
-              <li dangerouslySetInnerHTML={{__html: productDetails.find_print }}></li>
+              <li
+                dangerouslySetInnerHTML={{ __html: productDetails.find_print }}
+              ></li>
             </div>
             <div className="productHightlight">
               <h3>How To Redeem</h3>
-              <li dangerouslySetInnerHTML={{__html: productDetails.how_to_redeem }}></li>
+              <li
+                dangerouslySetInnerHTML={{
+                  __html: productDetails.how_to_redeem,
+                }}
+              ></li>
             </div>
             <div className="productHightlight">
               <h3>About The Company</h3>
@@ -137,55 +145,75 @@ const ProductDetails = () => {
                 <div className="productDownButtons">
                   Quality
                   <div className="rectangle">
-                    <PlusOutlined onClick={incCounter}/>
+                    <PlusOutlined onClick={incCounter} />
                   </div>
+                  <div className="rectangle">{counter}</div>
                   <div className="rectangle">
-                    {counter}
+                    <MinusOutlined onClick={decCounter} />
                   </div>
-                  <div className="rectangle">
-                    <MinusOutlined onClick={decCounter}/>
-                  </div>
-                  
                 </div>
                 <div className="addToBtns">
-                  <button style={{backgroundColor:"#dc8b2e", color:"#fff"}}><HeartOutlined /> Add To Wishlist</button>
-                  <button style={{backgroundColor:"#40b566", color:"#fff"}}><TagOutlined /> {counter} + Brought</button>
-                  </div>
-                  <div className="productPriceDescount">
-                    <p>{productDetails.discount}% off</p>
-                    <div>
-                    <p><del>${productDetails.product_price}</del></p>
+                  <button style={{ backgroundColor: "#dc8b2e", color: "#fff" }}>
+                    <HeartOutlined /> Add To Wishlist
+                  </button>
+                  <button style={{ backgroundColor: "#40b566", color: "#fff" }}>
+                    <TagOutlined /> {counter} + Brought
+                  </button>
+                </div>
+                <div className="productPriceDescount">
+                  <p>{productDetails.discount}% off</p>
+                  <div>
+                    <p>
+                      <del>${productDetails.product_price}</del>
+                    </p>
                     <p>${productDetails.actual_price}</p>
-                    </div>
                   </div>
-                  <div className="productDetailsRadio"> 
+                </div>
+                <div className="productDetailsRadio">
                   <input type="radio" />
                   <label>LG TV</label>
-                  </div>
-                  <div className="limitedTime">
+                </div>
+                <div className="limitedTime">
                   <p>Limited time remaining</p>
                   <h2>12:12:12</h2>
-                  </div>
+                </div>
               </div>
               <div className="productDetailsCheckoutBtn">
-              <Link className="link" to={`/payment/${productDetails.id}`}><button style={{backgroundColor:"#40b566", color:"#fff"}}>Continue To CheckOut</button></Link>
-              <button style={{backgroundColor:"#dc8b2e", color:"#fff"}}>Give as a Gift</button>
+                <Link className="link" to={`/payment/${productDetails.id}`}>
+                  <button style={{ backgroundColor: "#40b566", color: "#fff" }}>
+                    Continue To CheckOut
+                  </button>
+                </Link>
+
+                <Link to={`/gift/${productDetails.id}`} className="link">
+                  <button style={{ backgroundColor: "#dc8b2e", color: "#fff" }}>
+                    Give as a Gift
+                  </button>
+                </Link>
               </div>
             </div>
-            <p style={{marginTop:"25px"}}><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.1522162302053!2d149.11846281512146!3d-35.277341550957004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d448f9b3033%3A0xa086b01912baf60a!2s112%20Joplin%20Ln!5e0!3m2!1sen!2snp!4v1641706509775!5m2!1sen!2snp" width="275" height="300"  style={{border:0}} allowfullscreen="true" loading="lazy" title="map"></iframe></p>
-          <div className="shareDeals">
+            <p style={{ marginTop: "25px" }}>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3257.1522162302053!2d149.11846281512146!3d-35.277341550957004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6b164d448f9b3033%3A0xa086b01912baf60a!2s112%20Joplin%20Ln!5e0!3m2!1sen!2snp!4v1641706509775!5m2!1sen!2snp"
+                width="275"
+                height="300"
+                style={{ border: 0 }}
+                allowfullscreen="true"
+                loading="lazy"
+                title="map"
+              ></iframe>
+            </p>
+            <div className="shareDeals">
               <h2>Share This Deals</h2>
               <div className="dealsIcon">
-                <img src="/images/facebook.png" alt=""/>
-                <img src="/images/twitter.png" alt=""/>
-                <img src="/images/pininterest.png" alt=""/>
+                <img src="/images/facebook.png" alt="" />
+                <img src="/images/twitter.png" alt="" />
+                <img src="/images/pininterest.png" alt="" />
               </div>
-          </div>
+            </div>
           </div>
         </div>
       </div>
-      
-        
     </>
   );
 };

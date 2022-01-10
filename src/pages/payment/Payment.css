@@ -29,7 +29,8 @@
   flex-direction: column;
 }
 
-.paymentForm input {
+.paymentForm input,
+textarea {
   border-radius: 10px;
   padding: 1px 5px;
   margin: 15px 0px;
@@ -114,7 +115,7 @@
   justify-content: space-between;
 }
 
-.reviewLeft{
+.reviewLeft {
   display: flex;
   flex-direction: column;
 }
@@ -125,24 +126,24 @@
   gap: 10px;
 }
 
-.paymentImg{
+.paymentImg {
   width: 300px;
   height: 400px;
   object-fit: fill;
   padding: 20px 0px;
 }
 
-.paymentGrandTotal{
+.paymentGrandTotal {
   display: flex;
   justify-content: space-between;
 }
 
-.paymentReviewBtns{
+.paymentReviewBtns {
   display: flex;
   flex-direction: column;
 }
 
-.paymentReviewBtns button{
+.paymentReviewBtns button {
   margin-top: 10px;
   color: #fff;
   outline: none;

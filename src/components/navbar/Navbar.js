@@ -1,24 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { DownOutlined } from "@ant-design/icons";
 import "./Navbar.css";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 const Navbar = () => {
-  const [getCatagories, setGetCatagories] = useState([])
-
-  useEffect(() => {
-    const getCatData = async () => {
-      const response = await axios.get("https://classibazaar.com.au/api/deal/categories").catch((err) => {
-        console.log(err)
-      })
-      setGetCatagories(response.data)
-    }
-    getCatData()
-  }, [])
-
-  console.log(getCatagories)
-
   return (
     <div className="nav">
       <div className="navUp">
