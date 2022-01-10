@@ -16,6 +16,7 @@ import { Link, useParams } from "react-router-dom";
 
 const ProductDetails = () => {
   const [productDetails, setProductDetails] = useState([]);
+  const [productImage, setProductImage] = useState([]);
   const [counter, setCounter] = useState(1);
   const {productId} = useParams()
 
@@ -30,36 +31,35 @@ const ProductDetails = () => {
   useEffect(() => {
     const getProductDetails = async () => {
       const response = await axios
-        .get("https://classibazaar.com.au/api/deal/featured_deals/")
+        .get(`https://classibazaar.com.au/api/deal/detail/${productId}`)
         .catch((err) => {
           console.log(err);
         });
-      setProductDetails(response.data);
+      setProductDetails(response.data.deal);
+      setProductImage(response.data.images)
     };
     getProductDetails();
   }, [productId]);
-  
- const singleProductDetail = productDetails.filter(element => {
-   return element.id === productId
- })
 
- console.log(singleProductDetail)
+ 
+
+  console.log(productImage)
 
   return (
     <>
       <Navbar />
-      {singleProductDetail.map((product) =>(
-        <div className="productDetails" key={product.id} >
+    
+        <div className="productDetails" key={productDetails.id} >
         <div className="productDesc">
           <div className="productUp">
-            <h2>{product.dealstitle}</h2>
+            <h2>{productDetails.dealstitle}</h2>
             <p>
               4.0 <Rate /> 95 rating
             </p>
           </div>
           <div className="productDown">
             <p>
-              <TagsOutlined /> {product.subtitle}
+              <TagsOutlined /> {productDetails.subtitle}
             </p>
             <p>
               <HomeOutlined /> Shop 112 Joplin Lane Opposite to Club lime Pool,
@@ -69,24 +69,19 @@ const ProductDetails = () => {
         </div>
         <div className="productDetailInfo">
           <div className="productLeft">
-            <div className="productImg">
-              <img src={product.image.thumbnail} alt="" />
+            {productImage.map((image) =>(
+              <div className="productImg">
+              <img src={image.thumbnail} alt="" />
             </div>
+            ))}
+            
             <div className="productHightlight">
               <h3>Highlights</h3>
-              <li>⦾ Mini LED display</li>
-              <li>⦾ Quantum NanoCell Color Technology</li>
-              <li>⦾ Available in 86-inch</li>
-              <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
-              <li>⦾ Dolby Vision | Dolby Atmos</li>
+              <li dangerouslySetInnerHTML={{__html: productDetails.highlights }}></li>
             </div>
             <div className="productHightlight">
               <h3>About This Deal</h3>
-              <li>⦾ Mini LED display</li>
-              <li>⦾ Quantum NanoCell Color Technology</li>
-              <li>⦾ Available in 86-inch</li>
-              <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
-              <li>⦾ Dolby Vision | Dolby Atmos</li>
+              <li dangerouslySetInnerHTML={{__html: productDetails.description }}></li>
             </div>
             <div className="productHightlight">
               <h3>Aditional Information</h3>
@@ -104,19 +99,11 @@ const ProductDetails = () => {
             </div>
             <div className="productHightlight">
               <h3>Fine Print</h3>
-              <li>⦾ Mini LED display</li>
-              <li>⦾ Quantum NanoCell Color Technology</li>
-              <li>⦾ Available in 86-inch</li>
-              <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
-              <li>⦾ Dolby Vision | Dolby Atmos</li>
+              <li dangerouslySetInnerHTML={{__html: productDetails.find_print }}></li>
             </div>
             <div className="productHightlight">
               <h3>How To Redeem</h3>
-              <li>⦾ Mini LED display</li>
-              <li>⦾ Quantum NanoCell Color Technology</li>
-              <li>⦾ Available in 86-inch</li>
-              <li>⦾ LG α9 Gen 4 Intelligent Processor 8K</li>
-              <li>⦾ Dolby Vision | Dolby Atmos</li>
+              <li dangerouslySetInnerHTML={{__html: productDetails.how_to_redeem }}></li>
             </div>
             <div className="productHightlight">
               <h3>About The Company</h3>
@@ -165,10 +152,10 @@ const ProductDetails = () => {
                   <button style={{backgroundColor:"#40b566", color:"#fff"}}><TagOutlined /> {counter} + Brought</button>
                   </div>
                   <div className="productPriceDescount">
-                    <p>{product.discount}% off</p>
+                    <p>{productDetails.discount}% off</p>
                     <div>
-                    <p><del>${product.product_price}</del></p>
-                    <p>${product.actual_price}</p>
+                    <p><del>${productDetails.product_price}</del></p>
+                    <p>${productDetails.actual_price}</p>
                     </div>
                   </div>
                   <div className="productDetailsRadio"> 
@@ -181,7 +168,7 @@ const ProductDetails = () => {
                   </div>
               </div>
               <div className="productDetailsCheckoutBtn">
-              <Link className="link" to={`/payment/${product.id}`}><button style={{backgroundColor:"#40b566", color:"#fff"}}>Continue To CheckOut</button></Link>
+              <Link className="link" to={`/payment/${productDetails.id}`}><button style={{backgroundColor:"#40b566", color:"#fff"}}>Continue To CheckOut</button></Link>
               <button style={{backgroundColor:"#dc8b2e", color:"#fff"}}>Give as a Gift</button>
               </div>
             </div>
@@ -197,7 +184,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
-      ))}
+      
         
     </>
   );

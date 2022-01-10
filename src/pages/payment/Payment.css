@@ -104,16 +104,51 @@
 }
 
 .reviewBox {
-  display: flex;
+  padding: 30px;
+  border: 5px solid #40b566;
+  border-radius: 10px;
 }
 
-.reviewLeft {
+.paymentReview {
   display: flex;
-  flex: 2;
+  justify-content: space-between;
+}
+
+.reviewLeft{
+  display: flex;
+  flex-direction: column;
 }
 
 .reviewRight {
-  flex: 1;
+  display: flex;
+  margin-left: 50px;
+  gap: 10px;
+}
+
+.paymentImg{
+  width: 300px;
+  height: 400px;
+  object-fit: fill;
+  padding: 20px 0px;
+}
+
+.paymentGrandTotal{
+  display: flex;
+  justify-content: space-between;
+}
+
+.paymentReviewBtns{
+  display: flex;
+  flex-direction: column;
+}
+
+.paymentReviewBtns button{
+  margin-top: 10px;
+  color: #fff;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
 }
 
 @media screen and (max-width: 767px) {

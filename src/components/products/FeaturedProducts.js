@@ -30,8 +30,6 @@ const FeaturedProducts = () => {
     getFeaturedProducts();
   }, []);
 
-
-
   return (
     <>
       <h2 className="featuredTitle">Featured</h2>
@@ -39,7 +37,7 @@ const FeaturedProducts = () => {
       <div className="featuredProducts">
         {FeaturedProducts.slice(0, visible).map((product) => (
           <div className="productCard" key={product.id}>
-            <Link to={`/details/featured/${product.id}`} className="link">
+            <Link to={`/details/${product.deal_slug}`} className="link">
             <img src={product.image.thumbnail} alt="" />
             <div className="productCardBottom">
               <div className="productCardLeft">
